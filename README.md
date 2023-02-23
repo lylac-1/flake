@@ -1,3 +1,4 @@
+checkout https://tea.lylac.dev/lylac/flake :)
 # :snowflake: nixos w/flakes + home-manager & agenix
 my NixOS systems configurations
 
@@ -23,3 +24,4 @@ this is public to keep record, share what I find to be neat.. and ask for help o
 
 ### installing to a new system 
 `nixos-install --flake .#hostname`
+
