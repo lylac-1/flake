@@ -76,8 +76,14 @@
       domain = "tea.lylac.dev";
       rootUrl = "https://tea.lylac.dev/";
       httpPort = 3001;
-    };
-    postgresql = {
+      settings = {
+        UI = {
+          DEFAULT_THEME = "arc-green";
+        };
+        service = {
+          DISABLE_REGISTRATION = true;
+        };
+      };
     };
     deluge = {
       enable = true;
@@ -94,7 +100,6 @@
         allow_remote = true;
       };
     };
-
     nginx = {
       enable = true;
       commonHttpConfig = ''
