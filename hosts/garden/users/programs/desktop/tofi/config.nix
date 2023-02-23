@@ -1,0 +1,29 @@
+''
+  font = "JetBrains Mono"
+  font-size = 18
+  hint-font = true
+  text-color = #f0f0f0
+  background-color = #0f0f0f
+  selection-color = #ac8aac
+  input-color = #f0f0f0
+  prompt-text = ""
+  placeholder-text = ""
+  width = 220
+  height = 340
+  border-width = 0
+  border-color = #0f0f0f
+  outline-width = 2
+  outline-color = #0f0f0f
+  corner-radius = 5
+  text-background-corner-radius = 5
+  padding-top = 8
+  padding-bottom = 8
+  padding-left = 8
+  padding-right = 8
+  anchor = center
+  drun-launch = true
+  history = true
+  fuzzy-match = true
+  terminal = alacritty
+  ascii-input = false
+''
