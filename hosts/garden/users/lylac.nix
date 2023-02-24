@@ -22,7 +22,7 @@
     users.lylac = {
       imports = [
         ./programs/desktop
-        (import ./programs/zsh.nix "'%~ %% '") # default is fine
+        (import ./programs/zsh.nix {}) # default is fine
         ./programs/vim.nix
       ];
       home = {
