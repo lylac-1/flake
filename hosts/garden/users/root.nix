@@ -11,11 +11,8 @@
   home-manager.users.root = {
     imports = [
       ./programs/zsh.nix
-      ./programs/vim.nix
+      (import ./programs/vim.nix {prompt = "'%~ # '";})
     ];
-    programs.zsh.initExtra = ''
-      PROMPT='%~ # '
-    '';
     home.stateVersion = "23.05";
   };
 }

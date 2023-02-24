@@ -1,4 +1,4 @@
-{
+{prompt ? "'%~ %% '"}: {
   pkgs,
   config,
   inputs,
@@ -16,7 +16,7 @@
       path = "$HOME/.cache/zsh_history";
     };
     initExtra = ''
-      PROMPT='%~ %% '
+      PROMPT=${prompt}
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
       # ctrl backwards / delete
