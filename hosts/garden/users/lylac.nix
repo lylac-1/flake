@@ -15,41 +15,36 @@
     passwordFile = config.age.secrets.lylac-pass.path;
   };
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = {inherit inputs;};
-    users.lylac = {
-      imports = [
-        ./programs/desktop
-        (import ./programs/zsh.nix {}) # default is fine
-        ./programs/vim.nix
-      ];
-      home = {
-        username = "lylac";
-        homeDirectory = "/home/lylac";
-        packages = with pkgs; [
-          chromium # should get around to applying ungoogled
-          element-desktop # seems to ocasionally segfault on startup :shrug:
-          discord
-          mpv
-          mpd
-          ncmpcpp
-          prismlauncher-qt5 # uses qt5 to be compatable with gtk theme
-          osu-lazer-bin # needs version bump
-          krita
+  home-manager.users.lylac = {
+    imports = [
+      ../programs/desktop
+      (import ../programs/zsh.nix {}) # default is fine
+      ../programs/vim.nix
+    ];
+    home = {
+      username = "lylac";
+      homeDirectory = "/home/lylac";
+      packages = with pkgs; [
+        chromium
+        element-desktop
+        discord
+        mpv
+        imv
+        mpd
+        ncmpcpp
+        prismlauncher-qt5 # gt6 isnt themed
+        osu-lazer-bin
+        krita
 
-          # wayland desktop
-          wl-clipboard
-          grim
-          slurp
-          swaylock
-          swaybg
-          swayidle
-          imv
-        ];
-        stateVersion = "23.05";
-      };
+        # wayland desktop
+        wl-clipboard
+        grim
+        slurp
+        swaylock
+        swaybg
+        swayidle
+      ];
+      stateVersion = "23.05";
     };
   };
 }

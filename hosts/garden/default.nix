@@ -14,7 +14,7 @@
   time.timeZone = "NZ";
   i18n.defaultLocale = "en_NZ.UTF-8";
 
-  age.identityPaths = ["/root/.ssh/agenix-private"];
+  age.identityPaths = ["/root/.ssh/agenix-private"]; # secret's defined closer to where they are used.
 
   programs = {
     dconf.enable = true; # required for desktop/theme.nix
@@ -61,6 +61,11 @@
       xdg-utils # wayland
     ];
     shells = with pkgs; [zsh]; # see nixos.wiki/wiki/Command_Shell
+  };
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = {inherit inputs;};
   };
   system.stateVersion = "23.05";
 }
