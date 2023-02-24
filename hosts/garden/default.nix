@@ -7,6 +7,7 @@
   imports = [
     ./hardware.nix
     ./users/lylac.nix
+    ./users/root.nix
   ];
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
