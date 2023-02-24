@@ -42,7 +42,7 @@
   networking = {
     hostName = "garden";
     useDHCP = lib.mkDefault true;
-    dhcpcd.wait = "background"; # else getty will be held up by it by like 5-7sec.
+    dhcpcd.wait = "background"; # otherwise +5-7s to login
   };
 
   fileSystems = {

@@ -22,3 +22,9 @@ this is public to keep record, share what I find to be neat.. and ask for help o
 ### installing to a new system 
 `nixos-install --flake .#hostname`
 
+#### huh?
+users are per host to avoid splitting everything up too much to acomodate for how different the systems use cases are, this may change once my laptop is added as desktop and laptop may share plenty
+
+as are programs for a similar organizational reason :thumbsup:
+
+
