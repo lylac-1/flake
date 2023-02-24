@@ -112,37 +112,42 @@
       recommendedTlsSettings = true;
       recommendedOptimisation = true;
       recommendedGzipSettings = true;
-      virtualHosts = {
-        "lylac.dev" = {
+      virtualHosts = let
+        template = {
           forceSSL = true;
           enableACME = true;
-          serverAliases = ["lylac.dev"];
-          root = "/mnt/storage/volumes/website";
         };
-        "jelly.lylac.dev" = {
-          forceSSL = true;
-          enableACME = true;
-          locations."/" = {
-            proxyPass = "http://127.0.0.1:8096/";
-            proxyWebsockets = true;
-            extraConfig = "proxy_pass_header Authorization;";
+      in {
+        "lylac.dev" =
+          template
+          // {
+            serverAliases = ["lylac.dev"];
+            root = "/mnt/storage/volumes/website";
           };
-        };
-        "vault.lylac.dev" = {
-          forceSSL = true;
-          enableACME = true;
-          locations."/" = {
-            proxyPass = "http://127.0.0.1:${toString config.services.vaultwarden.config.ROCKET_PORT}";
-            extraConfig = "proxy_pass_header Authorization;";
+        "jelly.lylac.dev" =
+          template
+          // {
+            locations."/" = {
+              proxyPass = "http://127.0.0.1:8096/";
+              proxyWebsockets = true;
+              extraConfig = "proxy_pass_header Authorization;";
+            };
           };
-        };
-        "tea.lylac.dev" = {
-          forceSSL = true;
-          enableACME = true;
-          locations."/" = {
-            proxyPass = "http://127.0.0.1:3001";
+        "vault.lylac.dev" =
+          template
+          // {
+            locations."/" = {
+              proxyPass = "http://127.0.0.1:${toString config.services.vaultwarden.config.ROCKET_PORT}";
+              extraConfig = "proxy_pass_header Authorization;";
+            };
           };
-        };
+        "tea.lylac.dev" =
+          template
+          // {
+            locations."/" = {
+              proxyPass = "http://127.0.0.1:3001";
+            };
+          };
       };
     };
   };
