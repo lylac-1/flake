@@ -42,14 +42,15 @@
   fileSystems = let
     default = ["rw" "compress=zstd:9" "thread_pool=16" "space_cache=v2" "noatime" "discard" "ssd"];
   in {
-    "/mnt/boot" = {
-      device = "/dev/nvme1n1p1";
-      fsType = "vfat";
-    };
     "/" = {
       device = "/dev/nvme1n1p2";
       fsType = "btrfs";
       options = default ++ ["subvol=root"];
+    };
+    "/boot" = {
+      device = "/dev/nvme1n1p1";
+      fsType = "vfat";
+      options = ["rw" "noatime"];
     };
     "/home" = {
       device = "/dev/nvme1n1p2";
