@@ -151,5 +151,31 @@
       };
     };
   };
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+    oci-containers = {
+      backend = "podman";
+      containers = {
+        e6e = {
+          image = "itzg/minecraft-server:java8";
+          autoStart = true;
+          ports = ["25565:25565"];
+          environment = {
+            EULA = "true";
+            TYPE = "AUTO_CURSEFORGE";
+            CF_PAGE_URL = "https://www.curseforge.com/minecraft/modpacks/enigmatica6expert";
+            MEMORY = "10G";
+            TZ = "NZ";
+            USE_AIKAR_FLAGS = "true";
+          };
+          volumes = ["/home/lylac/e6e/:/data"];
+        };
+      };
+    };
+  };
   system.stateVersion = "unstable";
 }
