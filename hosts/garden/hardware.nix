@@ -19,7 +19,7 @@
       "video=DP-1:1920x1080@144"
       "video=HDMI-A-1:1920x1080@60"
       "amd_pstate=passive"
-      "initcall_blacklist=acpi_cpufreq_init"
+      #"initcall_blacklist=acpi_cpufreq_init"
     ];
     kernelModules = ["kvm-amd" "amd_pstate" "amdgpu"];
   };
@@ -46,33 +46,44 @@
   };
 
   fileSystems = {
-    # nixos specific
+    "/mnt/boot" = {
+      device = "/dev/nvme1n1p1";
+      fsType = "vfat"; # wonder if can make btrfs
+    };
     "/" = {
-      device = "/dev/disk/by-uuid/d79da673-e349-41fb-93fd-c84964a1730a";
+      device = "/dev/nvme1n1p2";
       fsType = "btrfs";
+      options = ["rw" "compress=zstd:9" "thread_pool=16" "space_cache=v2" "noatime" "subvol=root" "discard" "ssd"];
     };
-    "/boot" = {
-      device = "/dev/disk/by-uuid/BEA0-2D3C";
-      fsType = "vfat";
+    "/home" = {
+      device = "/dev/nvme1n1p2";
+      fsType = "btrfs";
+      options = ["rw" "compress=zstd:9" "thread_pool=16" "space_cache=v2" "noatime" "subvol=home" "discard" "ssd"];
     };
-    # main storage disks
+    "/nix" = {
+      device = "/dev/nvme1n1p2";
+      fsType = "btrfs";
+      options = ["rw" "compress=zstd:9" "thread_pool=16" "space_cache=v2" "noatime" "subvol=nix" "discard" "ssd"];
+    };
+    "/swap" = {
+      device = "/dev/nvme1n1p2";
+      fsType = "btrfs";
+      options = ["rw" "noatime" "subvol=swap" "discard" "ssd"];
+    };
     "/mnt/storage" = {
-      device = "/dev/disk/by-uuid/b5b70a59-deca-4b7f-8589-757baa0812a3";
+      device = "/dev/sda";
       fsType = "btrfs";
+      options = ["rw" "compress=zstd:9" "thread_pool=16" "space_cache=v2" "noatime" "subvol=storage" "discard" "ssd"];
     };
-    "/mnt/games" = {
-      device = "/dev/disk/by-uuid/5636a88d-6a73-41d2-a47f-f096624c525f";
+    "mnt/games" = {
+      device = "/dev/sda";
       fsType = "btrfs";
+      options = ["rw" "compress=zstd:9" "thread_pool=16" "space_cache=v2" "noatime" "subvol=games" "discard" "ssd"];
     };
-    # other systems.
-    "/mnt/gentoo" = {
-      device = "/dev/disk/by-uuid/724570fa-3229-406f-857d-4275e63f1116";
-      fsType = "btrfs";
-    };
-    # bizare mounting issues, doesnt matter, dont care.
-    #"/mnt/windows" = {
-    #  device = "/dev/disk/by-uuid/8898B8A398B89164";
-    #  fsType = "ntfs3";
-    #};
+    swapDevices = [
+      {
+        device = "/swap/swapfile";
+      }
+    ];
   };
 }

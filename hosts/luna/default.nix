@@ -87,8 +87,8 @@
     };
     deluge = {
       enable = true;
-      package = pkgs.deluge-2_x;
       openFirewall = true;
+      package = pkgs.deluge-2_x;
       web = {
         enable = true;
         openFirewall = true;
