@@ -4,26 +4,28 @@
   inputs,
   ...
 }: {
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nixpkgs.config.allowUnfree = true;
+
   imports = [
     ./hardware.nix
     ./users/lylac.nix
     ./users/root.nix
   ];
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-  nixpkgs.config.allowUnfree = true;
+
   time.timeZone = "NZ";
   i18n.defaultLocale = "en_NZ.UTF-8";
 
-  age.identityPaths = ["/root/.ssh/agenix-private"]; # secret's defined closer to where they are used.
+  age.identityPaths = ["/root/.ssh/agenix-private"];
 
   programs = {
-    dconf.enable = true; # required for desktop/theme.nix
-    steam.enable = true; # needs system install steps
+    dconf.enable = true; # theme.nix
+    steam.enable = true;
   };
   security = {
-    polkit.enable = true; # wayland desktop
+    polkit.enable = true; # wayland
     rtkit.enable = true; # pipewire
-    pam.services.swaylock = {}; # swaylock on hyprland requirement.
+    pam.services.swaylock = {}; # hyprland
   };
   services = {
     pipewire = {
@@ -32,11 +34,15 @@
       pulse.enable = true;
     };
     dbus.enable = true;
-    sshd.enable = true; # required for agenix apparently?
+    sshd.enable = true;
+    hardware.openrgb = {
+      enable = true;
+      motherboard = "amd";
+    };
   };
-  # wayland
+
   xdg.portal = {
-    enable = true;
+    enable = true; # wayland
     wlr.enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-wlr

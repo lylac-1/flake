@@ -33,11 +33,6 @@
   };
   powerManagement.cpuFreqGovernor = "schedutil";
 
-  services.hardware.openrgb = {
-    enable = true;
-    motherboard = "amd";
-  };
-
   networking = {
     hostName = "garden";
     useDHCP = lib.mkDefault true;

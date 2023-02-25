@@ -17,8 +17,8 @@
 
   home-manager.users.lylac = {
     imports = [
-      ../programs/desktop
       (import ../programs/zsh.nix {}) # default is fine
+      ../programs/desktop
       ../programs/vim.nix
     ];
     home = {
@@ -32,11 +32,11 @@
         imv
         mpd
         ncmpcpp
-        prismlauncher-qt5 # gt6 isnt themed
+        prismlauncher-qt5
         osu-lazer-bin
         krita
 
-        # wayland desktop
+        # wayland
         wl-clipboard
         grim
         slurp
