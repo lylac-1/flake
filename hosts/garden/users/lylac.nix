@@ -15,7 +15,7 @@
     passwordFile = config.age.secrets.lylac-pass.path;
   };
 
-  home-manager.users.lylac = {
+  home-manager.users.lylac = {config, ...}: {
     imports = [
       (import ../programs/zsh.nix {}) # default is fine
       ../programs/desktop
@@ -24,13 +24,13 @@
     home = {
       username = "lylac";
       homeDirectory = "/home/lylac";
-      /*
-        file = {
-        "Documents".source = lib.file.mkOutOfStoreSymlink "/mnt/storage/Documents";
-        "Music".source = lib.file.mkOutOfStoreSymlink "/mnt/storage/Music";
-        "Pictures".source = lib.file.mkOutOfStoreSymlink "/mnt/storage/Pictures";
+
+      file = {
+        "Documents".source = config.lib.file.mkOutOfStoreSymlink "/mnt/storage/Documents";
+        "Music".source = config.lib.file.mkOutOfStoreSymlink "/mnt/storage/Music";
+        "Pictures".source = config.lib.file.mkOutOfStoreSymlink "/mnt/storage/Pictures";
       };
-      */
+
       packages = with pkgs; [
         chromium
         element-desktop
