@@ -13,5 +13,6 @@
     ./waybar
     ./alacritty.nix
     ./vscodium.nix
+    ./chromium.nix
   ];
 }

@@ -2,7 +2,7 @@
   mcolours,
   lib,
 }: ''
-  exec-once=swaybg -i /home/lylac/.bg -m fill
+  exec-once=swaybg -o DP-1 -m fill -i ~/.bg1 -o HDMI-A-1 -i ~/.bg2
   exec-once=waybar -b mainBar
   exec-once=openrgb -p main
 

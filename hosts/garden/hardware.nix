@@ -9,6 +9,7 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     loader = {
+      timeout = 1;
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
