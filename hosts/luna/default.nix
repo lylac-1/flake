@@ -166,7 +166,7 @@
           ports = ["25565:25565"];
           environment = {
             EULA = "true";
-            TYPE = "AUTO_CURSEFORGE";
+            TYPE = "CURSEFORGE";
             CF_PAGE_URL = "https://www.curseforge.com/minecraft/modpacks/enigmatica6expert";
             MEMORY = "10G";
             TZ = "NZ";
