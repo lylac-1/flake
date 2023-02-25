@@ -167,7 +167,7 @@
           environment = {
             EULA = "true";
             TYPE = "CURSEFORGE";
-            CF_PAGE_URL = "https://www.curseforge.com/minecraft/modpacks/enigmatica6expert";
+            CF_SERVER_MOD = "/modpacks/enigmatica6expert";
             MEMORY = "10G";
             TZ = "NZ";
             USE_AIKAR_FLAGS = "true";
