@@ -19,7 +19,6 @@
       "video=DP-1:1920x1080@144"
       "video=HDMI-A-1:1920x1080@60"
       "amd_pstate=passive"
-      #"initcall_blacklist=acpi_cpufreq_init"
     ];
     kernelModules = ["kvm-amd" "amd_pstate" "amdgpu"];
   };
@@ -42,28 +41,30 @@
   networking = {
     hostName = "garden";
     useDHCP = lib.mkDefault true;
-    dhcpcd.wait = "background"; # otherwise +5-7s to login
+    dhcpcd.wait = "background"; # -7s to login
   };
 
-  fileSystems = {
+  fileSystems = let
+    default = ["rw" "compress=zstd:9" "thread_pool=16" "space_cache=v2" "noatime" "discard" "ssd"];
+  in {
     "/mnt/boot" = {
       device = "/dev/nvme1n1p1";
-      fsType = "vfat"; # wonder if can make btrfs
+      fsType = "vfat";
     };
     "/" = {
       device = "/dev/nvme1n1p2";
       fsType = "btrfs";
-      options = ["rw" "compress=zstd:9" "thread_pool=16" "space_cache=v2" "noatime" "subvol=root" "discard" "ssd"];
+      options = default ++ ["subvol=root"];
     };
     "/home" = {
       device = "/dev/nvme1n1p2";
       fsType = "btrfs";
-      options = ["rw" "compress=zstd:9" "thread_pool=16" "space_cache=v2" "noatime" "subvol=home" "discard" "ssd"];
+      options = default ++ ["subvol=home"];
     };
     "/nix" = {
       device = "/dev/nvme1n1p2";
       fsType = "btrfs";
-      options = ["rw" "compress=zstd:9" "thread_pool=16" "space_cache=v2" "noatime" "subvol=nix" "discard" "ssd"];
+      options = default ++ ["subvol=nix"];
     };
     "/swap" = {
       device = "/dev/nvme1n1p2";
@@ -73,17 +74,13 @@
     "/mnt/storage" = {
       device = "/dev/sda";
       fsType = "btrfs";
-      options = ["rw" "compress=zstd:9" "thread_pool=16" "space_cache=v2" "noatime" "subvol=storage" "discard" "ssd"];
+      options = default ++ ["subvol=storage"];
     };
     "mnt/games" = {
       device = "/dev/sda";
       fsType = "btrfs";
-      options = ["rw" "compress=zstd:9" "thread_pool=16" "space_cache=v2" "noatime" "subvol=games" "discard" "ssd"];
+      options = default ++ ["subvol=games"];
     };
-    swapDevices = [
-      {
-        device = "/swap/swapfile";
-      }
-    ];
   };
+  swapDevices = [{device = "/swap/swapfile";}];
 }
