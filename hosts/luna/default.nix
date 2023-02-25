@@ -152,13 +152,9 @@
     };
   };
   virtualisation = {
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
+    docker.enable = true;
     oci-containers = {
-      backend = "podman";
+      backend = "docker";
       containers = {
         e6e = {
           image = "itzg/minecraft-server:java8";
@@ -167,7 +163,7 @@
           environment = {
             EULA = "true";
             TYPE = "CURSEFORGE";
-            CF_SERVER_MOD = "/modpacks/enigmatica6expert";
+            CF_SERVER_MOD = "Enigmatica6ExpertServer-1.7.1.zip";
             MEMORY = "10G";
             TZ = "NZ";
             USE_AIKAR_FLAGS = "true";
