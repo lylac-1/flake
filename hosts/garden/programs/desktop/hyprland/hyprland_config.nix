@@ -1,4 +1,7 @@
-{mcolours}: ''
+{
+  mcolours,
+  lib,
+}: ''
   exec-once=swaybg -i /home/lylac/.bg -m fill
   exec-once=waybar -b mainBar
   exec-once=openrgb -p main
@@ -8,16 +11,8 @@
 
   workspace=DP-1,1
   workspace=HDMI-A-1,6
-  wsbind=1,DP-1
-  wsbind=2,DP-1
-  wsbind=3,DP-1
-  wsbind=4,DP-1
-  wsbind=5,DP-1
-  wsbind=6,HDMI-A-1
-  wsbind=7,HDMI-A-1
-  wsbind=8,HDMI-A-1
-  wsbind=9,HDMI-A-1
-  wsbind=10,HDMI-A-1
+  ${lib.concatMapStringsSep "\n" (n: "wsbind=${n},DP-1") ["1" "2" "3" "4" "5"]}
+  ${lib.concatMapStringsSep "\n" (n: "wsbind=${n},HDMI-A-1") ["6" "7" "8" "9"]}
 
   input {
     follow_mouse=2
@@ -83,25 +78,7 @@
   bind=SUPER,up,movefocus,u
   bind=SUPER,down,movefocus,d
 
-  bind=SUPER,1,workspace,1
-  bind=SUPER,2,workspace,2
-  bind=SUPER,3,workspace,3
-  bind=SUPER,4,workspace,4
-  bind=SUPER,5,workspace,5
-  bind=SUPER,6,workspace,6
-  bind=SUPER,7,workspace,7
-  bind=SUPER,8,workspace,8
-  bind=SUPER,9,workspace,9
-  bind=SUPER,0,workspace,10
+  ${lib.concatMapStringsSep "\n" (n: "bind=SUPER,${n},workspace,${n}") ["1" "2" "3" "4" "5" "6" "7" "8" "9"]}
 
-  bind=SUPER:SHIFT,1,movetoworkspacesilent,1
-  bind=SUPER:SHIFT,2,movetoworkspacesilent,2
-  bind=SUPER:SHIFT,3,movetoworkspacesilent,3
-  bind=SUPER:SHIFT,4,movetoworkspacesilent,4
-  bind=SUPER:SHIFT,5,movetoworkspacesilent,5
-  bind=SUPER:SHIFT,6,movetoworkspacesilent,6
-  bind=SUPER:SHIFT,7,movetoworkspacesilent,7
-  bind=SUPER:SHIFT,8,movetoworkspacesilent,8
-  bind=SUPER:SHIFT,9,movetoworkspacesilent,9
-  bind=SUPER:SHIFT,0,movetoworkspacesilent,10
+  ${lib.concatMapStringsSep "\n" (n: "bind=SUPER:SHIFT,${n},movetoworkspacesilent,${n}") ["1" "2" "3" "4" "5" "6" "7" "8" "9"]}
 ''

@@ -4,6 +4,7 @@
   pkgs,
   hyprland,
   mcolours,
+  lib,
   ...
 }: {
   imports = [
@@ -11,6 +12,6 @@
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = import ./hyprland_config.nix {inherit mcolours;};
+    extraConfig = import ./hyprland_config.nix {inherit mcolours lib;};
   };
 }

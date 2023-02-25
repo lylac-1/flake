@@ -24,6 +24,13 @@
     home = {
       username = "lylac";
       homeDirectory = "/home/lylac";
+      /*
+        file = {
+        "Documents".source = lib.file.mkOutOfStoreSymlink "/mnt/storage/Documents";
+        "Music".source = lib.file.mkOutOfStoreSymlink "/mnt/storage/Music";
+        "Pictures".source = lib.file.mkOutOfStoreSymlink "/mnt/storage/Pictures";
+      };
+      */
       packages = with pkgs; [
         chromium
         element-desktop
