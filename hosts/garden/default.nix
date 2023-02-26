@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   nix = {
@@ -58,6 +59,21 @@
       xdg-desktop-portal-wlr
       xdg-desktop-portal
     ];
+  };
+
+  users.extraUsers.openrgb = {
+    isSystemUser = true;
+    group = "nogroup";
+    createHome = true;
+    home = "/var/lib/openrgb";
+  };
+  systemd.services.openrgbprofile = {
+    description = "apply openrgb profile main";
+    serviceConfig = {
+      Type = "oneshot";
+      User = "openrgb";
+      ExecStart = "${lib.getExe pkgs.openrgb} -p main";
+    };
   };
   fonts.fonts = with pkgs; [
     noto-fonts
