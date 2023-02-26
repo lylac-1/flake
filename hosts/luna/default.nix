@@ -158,7 +158,7 @@
       containers = {
         e6e = {
           image = "itzg/minecraft-server:java8";
-          autoStart = true;
+          autoStart = false;
           ports = ["25565:25565"];
           environment = {
             EULA = "true";

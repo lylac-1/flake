@@ -21,7 +21,7 @@
       "video=HDMI-A-1:1920x1080@60"
       "amd_pstate=passive"
     ];
-    kernelModules = ["kvm-amd" "amd_pstate" "amdgpu"];
+    kernelModules = ["kvm-amd" "amd_pstate" "amdgpu" "i2c-dev" "i2c-piix"];
   };
   hardware = {
     enableRedistributableFirmware = true;

@@ -46,10 +46,10 @@
     };
     dbus.enable = true;
     sshd.enable = true;
-    hardware.openrgb = {
-      enable = true;
-      motherboard = "amd";
-    };
+    #hardware.openrgb = {
+    #  enable = true;
+    #  motherboard = "amd";
+    #};
   };
 
   xdg.portal = {
@@ -63,13 +63,14 @@
 
   users.extraUsers.openrgb = {
     isSystemUser = true;
-    group = "nogroup";
+    group = "wheel";
+    uid = 1;
+    #gid = 0;
     createHome = true;
     home = "/var/lib/openrgb";
   };
   systemd.services.openrgbprofile = {
     description = "apply openrgb profile main";
-    requires = ["openrgb.service"];
     wantedBy = ["multi-user.target"];
     serviceConfig = {
       Type = "oneshot";
