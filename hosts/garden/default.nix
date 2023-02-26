@@ -69,6 +69,8 @@
   };
   systemd.services.openrgbprofile = {
     description = "apply openrgb profile main";
+    requires = ["openrgb.service"];
+    wantedBy = ["multi-user.target"];
     serviceConfig = {
       Type = "oneshot";
       User = "openrgb";

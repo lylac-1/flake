@@ -4,7 +4,6 @@
 }: ''
   exec-once=swaybg -o DP-1 -m fill -i ~/.bg1 -o HDMI-A-1 -i ~/.bg2
   exec-once=waybar -b mainBar
-  exec-once=openrgb -p main
 
   monitor=DP-1,1920x1080@144,0x0,1
   monitor=HDMI-A-1,1920x1080@60,1920x0,1
