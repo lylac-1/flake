@@ -23,6 +23,9 @@
       garden = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
+        pkgs = import nixpkgs {
+          overlays = [(import ./overlays/openrgb)];
+        };
         modules = [
           ./hosts/garden
           home-manager.nixosModules.home-manager

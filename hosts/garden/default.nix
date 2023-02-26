@@ -46,10 +46,10 @@
     };
     dbus.enable = true;
     sshd.enable = true;
-    #hardware.openrgb = {
-    #  enable = true;
-    #  motherboard = "amd";
-    #};
+    hardware.openrgb = {
+      enable = true;
+      motherboard = "amd";
+    };
   };
 
   xdg.portal = {
@@ -60,24 +60,23 @@
       xdg-desktop-portal
     ];
   };
-
   users.extraUsers.openrgb = {
     isSystemUser = true;
-    group = "wheel";
-    uid = 1;
-    #gid = 0;
+    group = "nogroup";
     createHome = true;
     home = "/var/lib/openrgb";
   };
   systemd.services.openrgbprofile = {
     description = "apply openrgb profile main";
     wantedBy = ["multi-user.target"];
+    requires = ["openrgb.service"];
     serviceConfig = {
-      Type = "oneshot";
+      Type = "notify";
       User = "openrgb";
       ExecStart = "${lib.getExe pkgs.openrgb} -p main";
     };
   };
+
   fonts.fonts = with pkgs; [
     noto-fonts
     noto-fonts-cjk
