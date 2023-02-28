@@ -111,9 +111,23 @@
         trustedProxies = ["https://next.lylac.dev"];
         adminuser = "admin";
         adminpassFile = config.age.secrets.nextcloud-auth.path;
+        dbtype = "pgsql";
+        dbuser = "nextcloud";
+        dbhost = "/run/postgresql";
+        dbname = "nextcloud";
       };
       nginx.recommendedHttpHeaders = true;
       https = true;
+    };
+    postgresql = {
+      enable = true;
+      ensureDatabases = ["nextcloud"];
+      ensureUsers = [
+        {
+          name = "nextcloud";
+          ensurePermissions."DATABASE nextcloud" = "ALL PRIVILEGES";
+        }
+      ];
     };
     nginx = {
       enable = true;
@@ -166,6 +180,10 @@
         ${config.services.nextcloud.hostName} = template;
       };
     };
+  };
+  systemd.services."nextcloud-setup" = {
+    requires = ["postgresql.service"];
+    after = ["postgresql.service"];
   };
   virtualisation = {
     docker.enable = true;
