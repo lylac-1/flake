@@ -106,6 +106,7 @@
     };
     nextcloud = {
       enable = true;
+      package = pkgs.nextcloud25;
       hostName = "next.lylac.dev";
       config = {
         trustedProxies = ["https://next.lylac.dev"];
