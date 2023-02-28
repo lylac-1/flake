@@ -23,6 +23,10 @@
       file = ../../secrets/deluge-auth.age;
       owner = "deluge";
     };
+    nextcloud-auth = {
+      file = ../../secrets/nextcloud-auth.age;
+      owner = "nextcloud";
+    };
   };
 
   users.extraUsers.lylac = {
@@ -105,7 +109,7 @@
       hostName = "next.lylac.dev";
       config = {
         trustedProxies = ["https://next.lylac.dev"];
-        #adminpassFile = config.age.secrets.nextcloud-auth.path;
+        adminpassFile = config.age.secrets.nextcloud-auth.path;
       };
       nginx.recommendedHttpHeaders = true;
       https = true;

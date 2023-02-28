@@ -3,4 +3,5 @@ let
 in {
   "lylac-pass.age".publicKeys = [agenix-public];
   "deluge-auth.age".publicKeys = [agenix-public];
+  "nextcloud-auth.age".publicKeys = [agenix-public];
 }
