@@ -181,10 +181,12 @@
       };
     };
   };
-  systemd.services."nextcloud-setup" = {
+  /*
+    systemd.services."nextcloud-setup" = {
     requires = ["postgresql.service"];
     after = ["postgresql.service"];
   };
+  */
   virtualisation = {
     docker.enable = true;
     oci-containers = {
