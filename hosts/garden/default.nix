@@ -60,6 +60,7 @@
       xdg-desktop-portal
     ];
   };
+
   users.extraUsers.openrgb = {
     isSystemUser = true;
     group = "nogroup";
@@ -71,7 +72,7 @@
     wantedBy = ["multi-user.target"];
     requires = ["openrgb.service"];
     serviceConfig = {
-      Type = "notify";
+      Type = "oneshot";
       User = "openrgb";
       ExecStart = "${lib.getExe pkgs.openrgb} -p main";
     };

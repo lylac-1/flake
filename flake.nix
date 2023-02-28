@@ -24,7 +24,9 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         pkgs = import nixpkgs {
-          overlays = [(import ./overlays/openrgb)];
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+          overlays = [(import ./hosts/garden/overlays/openrgb)];
         };
         modules = [
           ./hosts/garden

@@ -100,6 +100,16 @@
         allow_remote = true;
       };
     };
+    nextcloud = {
+      enable = true;
+      hostName = "next.lylac.dev";
+      config = {
+        trustedProxies = ["https://next.lylac.dev"];
+        #adminpassFile = config.age.secrets.nextcloud-auth.path;
+      };
+      nginx.recommendedHttpHeaders = true;
+      https = true;
+    };
     nginx = {
       enable = true;
       commonHttpConfig = ''
@@ -148,6 +158,7 @@
               proxyPass = "http://127.0.0.1:3001";
             };
           };
+        ${config.services.nextcloud.hostName} = template;
       };
     };
   };
