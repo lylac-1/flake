@@ -113,7 +113,6 @@
         adminuser = "admin";
         adminpassFile = config.age.secrets.nextcloud-auth.path;
         dbtype = "pgsql";
-        dbuser = "nextcloud";
         dbhost = "/run/postgresql";
         dbname = "nextcloud";
       };
@@ -122,11 +121,11 @@
     };
     postgresql = {
       enable = true;
-      ensureDatabases = ["nextcloud"];
+      ensureDatabases = [config.services.nextcloud.config.dbname];
       ensureUsers = [
         {
-          name = "nextcloud";
-          ensurePermissions."DATABASE nextcloud" = "ALL PRIVILEGES";
+          name = config.services.nextcloud.config.dbuser;
+          ensurePermissions."DATABASE ${config.services.nextcloud.config.dbname}" = "ALL PRIVILEGES";
         }
       ];
     };
@@ -182,12 +181,12 @@
       };
     };
   };
-  /*
-    systemd.services."nextcloud-setup" = {
+  
+  systemd.services."nextcloud-setup" = {
     requires = ["postgresql.service"];
     after = ["postgresql.service"];
   };
-  */
+  
   virtualisation = {
     docker.enable = true;
     oci-containers = {
