@@ -5,11 +5,9 @@
   lib,
   ...
 }: {
-  age.secrets = {
-    nextcloud-auth = {
-        file = ../../../secrets/nextcloud-auth.age;
-        owner = "nextcloud";
-    };
+  age.secrets.nextcloud-auth = {
+    file = ../../../secrets/nextcloud-auth.age;
+    owner = "nextcloud";
   };
   services = {
     nextcloud = {
