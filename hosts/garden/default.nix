@@ -94,6 +94,7 @@
       git
       ranger
       xdg-utils # wayland
+      # (import ./susbot.nix) waiting on nixi to start crate testing
     ];
     shells = with pkgs; [zsh]; # see nixos.wiki/wiki/Command_Shell
   };

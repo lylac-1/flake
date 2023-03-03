@@ -23,7 +23,7 @@
   nixpkgs.config.allowUnfree = true;
   time.timeZone = "NZ";
   i18n.defaultLocale = "en_NZ.UTF-8";
-  
+
   # user env setup.
   age = {
     identityPaths = ["/root/.ssh/agenix-private"];
