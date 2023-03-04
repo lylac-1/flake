@@ -29,7 +29,7 @@
   	multisample_edges=true
   }
   animations {
-    enabled=1
+    #enabled=1
     animation=windows,1,2,default
     animation=border,1,2,default
     animation=fade,1,2,default

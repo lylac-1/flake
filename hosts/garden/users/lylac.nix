@@ -1,4 +1,6 @@
 {
+  nixpkgs,
+  home-manager,
   pkgs,
   config,
   inputs,
@@ -14,7 +16,6 @@
     shell = pkgs.zsh;
     passwordFile = config.age.secrets.lylac-pass.path;
   };
-
   home-manager.users.lylac = {config, ...}: {
     imports = [
       (import ../programs/zsh.nix {}) # default is fine
