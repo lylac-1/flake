@@ -17,18 +17,14 @@
     };
   };
   nixpkgs.config.allowUnfree = true;
-
   imports = [
     ./hardware.nix
     ./users/lylac.nix
     ./users/root.nix
   ];
-
   time.timeZone = "NZ";
   i18n.defaultLocale = "en_NZ.UTF-8";
-
   age.identityPaths = ["/root/.ssh/agenix-private"];
-
   programs = {
     dconf.enable = true; # theme.nix
     steam.enable = true;
@@ -46,12 +42,7 @@
     };
     dbus.enable = true;
     sshd.enable = true;
-    hardware.openrgb = {
-      enable = true;
-      motherboard = "amd";
-    };
   };
-
   xdg.portal = {
     enable = true; # wayland
     wlr.enable = true;
@@ -60,7 +51,6 @@
       xdg-desktop-portal
     ];
   };
-
   users.extraUsers.openrgb = {
     isSystemUser = true;
     group = "nogroup";
@@ -70,14 +60,12 @@
   systemd.services.openrgbprofile = {
     description = "apply openrgb profile main";
     wantedBy = ["multi-user.target"];
-    requires = ["openrgb.service"];
     serviceConfig = {
       Type = "oneshot";
       User = "openrgb";
       ExecStart = "${lib.getExe pkgs.openrgb} -p main";
     };
   };
-
   fonts.fonts = with pkgs; [
     noto-fonts
     noto-fonts-cjk

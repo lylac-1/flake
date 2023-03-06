@@ -25,14 +25,13 @@
     home = {
       username = "lylac";
       homeDirectory = "/home/lylac";
-
       file = {
         "Documents".source = config.lib.file.mkOutOfStoreSymlink "/mnt/storage/Documents";
         "Music".source = config.lib.file.mkOutOfStoreSymlink "/mnt/storage/Music";
         "Pictures".source = config.lib.file.mkOutOfStoreSymlink "/mnt/storage/Pictures";
       };
-
       packages = with pkgs; [
+        yafetch
         chromium
         element-desktop
         discord
@@ -43,7 +42,6 @@
         prismlauncher-qt5
         osu-lazer-bin
         krita
-
         # wayland
         wl-clipboard
         grim

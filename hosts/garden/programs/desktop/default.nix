@@ -8,7 +8,6 @@
     ./common.nix
     ./theme.nix
     ./hyprland
-    ./neofetch
     ./tofi
     ./waybar
     ./alacritty.nix

@@ -38,7 +38,7 @@
       lunacp = "scp -p 40221 -i ~/.ssh/luna-private";
       build-switch = "nixos-rebuild switch --flake .#garden --use-remote-sudo";
       build-dry = "nixos-rebuild dry-build --flake .#garden --use-remote-sudo";
-      fetch = "neofetch";
+      fetch = "yafetch";
     };
   };
 }
