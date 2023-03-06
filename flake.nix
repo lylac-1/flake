@@ -23,14 +23,8 @@
       garden = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-          overlays = [(import ./hosts/garden/overlays/openrgb)];
-        };
         modules = [
           {
-            # see https://ayats.org/blog/channels-to-flakes
             environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
             nix.nixPath = ["nixpkgs=/etc/nix/inputs/nixpkgs"];
             nix.registry.nixpkgs.flake = nixpkgs;
@@ -50,7 +44,6 @@
         ];
       };
     };
-    # see https://ayats.org/blog/channels-to-flakes
     homeConfigurations.lylac = home-manager.lib.homeManagerConfiguration {
       modules = [
         (args: {
