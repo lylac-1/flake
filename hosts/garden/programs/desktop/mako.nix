@@ -5,11 +5,16 @@
   mcolours,
   ...
 }: {
-  programs.mako = {
+  services.mako = {
     enable = true;
+    defaultTimeout = 5;
     anchor = "bottom-right";
-    ignoreTimeout = true;
-    maxIconSize = 32;
+    layer = "top";
     output = "HDMI-A-1";
+    maxIconSize = 32;
+    backgroundColor = "#" + mcolours.primary.bg;
+    textColor = "#" + mcolours.primary.fg;
+    borderColor = "#" + mcolours.primary.main;
+    borderRadius = 5;
   };
 }

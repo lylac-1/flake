@@ -26,9 +26,11 @@
   hardware = {
     enableRedistributableFirmware = true;
     cpu.amd.updateMicrocode = true;
-    opengl.driSupport = true;
-    opengl.driSupport32Bit = true;
-
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
     xone.enable = true;
     opentabletdriver.enable = true;
   };

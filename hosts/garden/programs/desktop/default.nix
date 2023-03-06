@@ -13,5 +13,6 @@
     ./alacritty.nix
     ./vscodium.nix
     ./chromium.nix
+    ./mako.nix
   ];
 }

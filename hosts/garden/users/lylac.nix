@@ -41,6 +41,7 @@
         ncmpcpp
         prismlauncher-qt5
         osu-lazer-bin
+        (import ../programs/r2modmanplus.nix)
         krita
         # wayland
         wl-clipboard
