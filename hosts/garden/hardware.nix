@@ -34,7 +34,7 @@
     xone.enable = true;
     opentabletdriver.enable = true;
   };
-  powerManagement.cpuFreqGovernor = "schedutil";
+  powerManagement.cpuFreqGovernor = "performance";
 
   networking = {
     hostName = "garden";

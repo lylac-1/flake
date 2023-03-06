@@ -21,6 +21,7 @@
       (import ../programs/zsh.nix {}) # default is fine
       ../programs/desktop
       ../programs/vim.nix
+      ../programs/desktop/r2modmanplus.nix # wraps a appimg
     ];
     home = {
       username = "lylac";
@@ -41,7 +42,7 @@
         ncmpcpp
         prismlauncher-qt5
         osu-lazer-bin
-        (import ../programs/r2modmanplus.nix)
+        #r2modmanplus
         krita
         # wayland
         wl-clipboard

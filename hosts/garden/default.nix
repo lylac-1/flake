@@ -51,18 +51,20 @@
       xdg-desktop-portal
     ];
   };
-  users.extraUsers.openrgb = {
+  /*
+    users.extraUsers.openrgb = {
     isSystemUser = true;
     group = "nogroup";
     createHome = true;
     home = "/var/lib/openrgb";
   };
+  */
   systemd.services.openrgbprofile = {
     description = "apply openrgb profile main";
     wantedBy = ["multi-user.target"];
     serviceConfig = {
-      Type = "oneshot";
-      User = "openrgb";
+      Type = "simple";
+      User = "root"; # temp cause lazy
       ExecStart = "${lib.getExe pkgs.openrgb} -p main";
     };
   };
