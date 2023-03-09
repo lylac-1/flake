@@ -42,9 +42,9 @@
         ncmpcpp
         prismlauncher-qt5
         osu-lazer-bin
-        #r2modmanplus
         krita
-        # wayland
+        jetbrains.idea-community
+        jetbrains.clion
         wl-clipboard
         grim
         slurp

@@ -39,7 +39,7 @@
   networking = {
     hostName = "garden";
     useDHCP = lib.mkDefault true;
-    dhcpcd.wait = "background"; # -7s to login
+    #dhcpcd.wait = "background"; # -7s to login
   };
 
   fileSystems = let

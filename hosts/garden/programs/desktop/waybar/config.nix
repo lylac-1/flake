@@ -74,7 +74,7 @@
           format-disconnected = " disconnected";
         };
         "network#speed" = {
-          format-ethernet = "{bandwidthDownBytes} : {bandwidthUpBytes}";
+          format-ethernet = " {bandwidthDownBytes}  {bandwidthUpBytes}";
         };
         "tray" = {
           show-passive-items = true;
