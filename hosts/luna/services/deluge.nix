@@ -6,7 +6,7 @@
   ...
 }: {
   age.secrets.deluge-auth = {
-    file = ../../secrets/deluge-auth.age;
+    file = ../../../secrets/deluge-auth.age;
     owner = "deluge";
   };
   services = {
