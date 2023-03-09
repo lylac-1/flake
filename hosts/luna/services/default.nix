@@ -36,11 +36,14 @@
       rootUrl = "https://tea.lylac.dev/";
       httpPort = 3001;
       settings = {
-        UI = {
+        ui = {
           DEFAULT_THEME = "arc-green";
         };
         service = {
           DISABLE_REGISTRATION = true;
+        };
+        server = {
+          LANDING_PAGE = "/explore/repos";
         };
       };
     };
