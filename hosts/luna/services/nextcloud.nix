@@ -13,8 +13,10 @@
     nextcloud = {
       enable = true;
       package = pkgs.nextcloud25;
-      hostName = "next.lylac.dev";
+      hostName = "lylac.dev";
+      autoUpdateApps.enable = true;
       config = {
+        overwriteProtocol = "https";
         trustedProxies = ["https://next.lylac.dev"];
         adminuser = "admin";
         adminpassFile = config.age.secrets.nextcloud-auth.path;
