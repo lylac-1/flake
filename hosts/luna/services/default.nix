@@ -10,6 +10,7 @@
     ./nginx.nix
     ./deluge.nix
     ./jellyfin.nix
+    ./susbot.nix
   ];
   services = {
     openssh = {
