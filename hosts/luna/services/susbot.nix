@@ -36,7 +36,7 @@
     serviceConfig = {
       User = "susbot";
       Type = "simple";
-      ExecStart = "${lib.getExe pkgs.susbot} ${config.age.secrets.susbot-token.path}";
+      ExecStart = "SusBot ${config.age.secrets.susbot-token.path}";
     };
   };
 }
