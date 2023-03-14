@@ -21,16 +21,10 @@
       (import ../programs/zsh.nix {}) # default is fine
       ../programs/desktop
       ../programs/vim.nix
-      ../programs/desktop/r2modmanplus.nix # wraps a appimg
     ];
     home = {
       username = "lylac";
       homeDirectory = "/home/lylac";
-      file = {
-        "Documents".source = config.lib.file.mkOutOfStoreSymlink "/mnt/storage/Documents";
-        "Music".source = config.lib.file.mkOutOfStoreSymlink "/mnt/storage/Music";
-        "Pictures".source = config.lib.file.mkOutOfStoreSymlink "/mnt/storage/Pictures";
-      };
       packages = with pkgs; [
         yafetch
         chromium
@@ -40,8 +34,6 @@
         imv
         mpd
         ncmpcpp
-        prismlauncher-qt5
-        osu-lazer-bin
         krita
         jetbrains.idea-community
         jetbrains.clion

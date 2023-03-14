@@ -1,11 +1,12 @@
 {
+  system,
   pkgs,
   config,
   inputs,
   ...
 }: {
   imports = [
-    ./config.nix
+    ./config_${system}.nix
     ./style.nix
   ];
   programs.waybar = {

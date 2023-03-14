@@ -23,7 +23,7 @@ in {
     susbot
   ];
   age.secrets.susbot-token = {
-    file = ../../../secrets/susbot-token.age;
+    file = ../../secrets/susbot-token.age;
     owner = "susbot";
   };
   users.extraUsers.susbot = {

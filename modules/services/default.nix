@@ -10,6 +10,7 @@
     ./nginx.nix
     ./deluge.nix
     ./jellyfin.nix
+    ./containers.nix
     ./susbot.nix
   ];
   services = {

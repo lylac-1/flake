@@ -34,11 +34,11 @@
           agenix.nixosModules.default
         ];
       };
-      luna = nixpkgs.lib.nixosSystem {
+      aurelia = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/luna
+          ./hosts/aurelia
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
         ];

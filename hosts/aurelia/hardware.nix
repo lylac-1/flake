@@ -21,7 +21,7 @@
     kernelModules = ["kvm-intel"];
   };
   networking = {
-    hostName = "luna";
+    hostName = "aurelia";
     firewall = {
       enable = true;
       allowedTCPPorts = [80 443 8080 25565];
@@ -29,6 +29,7 @@
     useDHCP = lib.mkDefault true;
   };
   fileSystems = {
+    # should get around to refactoring the storage setup here, note: buy new disks lol
     "/" = {
       device = "/dev/disk/by-uuid/7fe6290c-ca79-4810-b91e-0bbf756a7902";
       fsType = "ext4";

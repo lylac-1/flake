@@ -6,8 +6,9 @@
 }: {
   imports = [
     ./hardware.nix
-    ./services
-    ./containers.nix
+    ./users/lylac.nix
+    ./users/root.nix
+    ../../modules/services
   ];
   nix = {
     settings = {
@@ -24,21 +25,6 @@
   time.timeZone = "NZ";
   i18n.defaultLocale = "en_NZ.UTF-8";
 
-  # user env setup.
-  age = {
-    identityPaths = ["/root/.ssh/agenix-private"];
-    secrets.lylac-pass = {
-      file = ../../secrets/lylac-pass.age;
-      owner = "lylac";
-    };
-  };
-  users.extraUsers.lylac = {
-    isNormalUser = true;
-    home = "/home/lylac";
-    extraGroups = ["wheel"];
-    openssh.authorizedKeys.keys = import ./lylac-pub.nix;
-    passwordFile = config.age.secrets.lylac-pass.path;
-  };
   environment = {
     variables = {EDITOR = "vim";};
     systemPackages = with pkgs; [
@@ -50,6 +36,10 @@
       git
     ];
   };
-
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = {inherit inputs;};
+  };
   system.stateVersion = "23.05";
 }

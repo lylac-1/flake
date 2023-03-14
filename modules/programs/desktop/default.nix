@@ -1,4 +1,4 @@
-{
+{system ? ""}: {
   pkgs,
   config,
   inputs,

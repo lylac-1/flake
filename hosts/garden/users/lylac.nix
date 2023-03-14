@@ -18,10 +18,10 @@
   };
   home-manager.users.lylac = {config, ...}: {
     imports = [
-      (import ../programs/zsh.nix {}) # default is fine
-      ../programs/desktop
-      ../programs/vim.nix
-      ../programs/desktop/r2modmanplus.nix # wraps a appimg
+      (import ../../../modules/programs/zsh.nix {}) # default is fine
+      (import ../../../modules/programs/desktop {system = "garden";})
+      ../../../modules/programs/vim.nix
+      ../../../modules/programs/desktop/r2modmanplus.nix
     ];
     home = {
       username = "lylac";

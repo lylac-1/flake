@@ -6,19 +6,19 @@
   ...
 }: {
   age.secrets.nextcloud-auth = {
-    file = ../../../secrets/nextcloud-auth.age;
+    file = ../../secrets/nextcloud-auth.age;
     owner = "nextcloud";
   };
   services = {
     nextcloud = {
       enable = true;
       package = pkgs.nextcloud25;
-      hostName = "next.lylac.dev";
+      hostName = "next.aurelia.cafe";
       home = "/mnt/storage/nextcloud";
       autoUpdateApps.enable = true;
       config = {
         overwriteProtocol = "https";
-        trustedProxies = ["https://next.lylac.dev"];
+        trustedProxies = ["https://next.aurelia.cafe"];
         adminuser = "admin";
         adminpassFile = config.age.secrets.nextcloud-auth.path;
         dbtype = "pgsql";

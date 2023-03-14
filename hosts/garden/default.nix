@@ -21,7 +21,6 @@
     ./hardware.nix
     ./users/lylac.nix
     ./users/root.nix
-    ./susbot.nix
   ];
   time.timeZone = "NZ";
   i18n.defaultLocale = "en_NZ.UTF-8";

@@ -7,7 +7,7 @@
 }: {
   security.acme = {
     acceptTerms = true;
-    defaults.email = "acme@lylac.dev";
+    defaults.email = "acme@aurelia.cafe";
   };
   services.nginx = {
     enable = true;
@@ -27,13 +27,13 @@
         enableACME = true;
       };
     in {
-      "lylac.dev" =
+      "aurelia.cafe" =
         template
         // {
-          serverAliases = ["lylac.dev"];
+          serverAliases = ["aurelia.cafe"];
           root = "/mnt/storage/volumes/website";
         };
-      "jelly.lylac.dev" =
+      "jelly.aurelia.cafe" =
         template
         // {
           locations."/" = {
@@ -42,7 +42,7 @@
             extraConfig = "proxy_pass_header Authorization;";
           };
         };
-      "vault.lylac.dev" =
+      "vault.aurelia.cafe" =
         template
         // {
           locations."/" = {
@@ -50,7 +50,7 @@
             extraConfig = "proxy_pass_header Authorization;";
           };
         };
-      "tea.lylac.dev" =
+      "tea.aurelia.cafe" =
         template
         // {
           locations."/" = {
