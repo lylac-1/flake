@@ -16,9 +16,7 @@
         sha256 = "sha256-uYtMy/rfMJPkBFDTEoKNtuogvdPlL/0Mnr//yZp5d0Y=";
       };
       cargoHash = "sha256-CbIaOENKP4q5aVca6Cjaz32qIVfnvCNzA+CiKaA+D/w=";
-      meta = {
-        lib.mainprogram = "SusBot";
-      };
+      meta.mainprogram = "SusBot";
     };
 in {
   environment.systemPackages = [
@@ -26,7 +24,7 @@ in {
   ];
   age.secrets.susbot-token = {
     file = ../../../secrets/susbot-token.age;
-    owner = "SusBot";
+    owner = "susbot";
   };
   users.extraUsers.susbot = {
     isSystemUser = true;
