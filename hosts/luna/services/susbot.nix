@@ -14,7 +14,7 @@
           owner = "Nixinova";
           repo = "SusBot";
           rev = "rust";
-          sha256 = "sha256-i/aRyHnc6S7PqibNMTXKo1HUCqHZmfYNW0oVZh2gf8E=";
+          sha256 = "sha256-uYtMy/rfMJPkBFDTEoKNtuogvdPlL/0Mnr//yZp5d0Y=";
         };
         cargoHash = "sha256-lNf2oUybWEJFAudCuqG6Y83O1KIc9WUXz5hRyQrHng8=";
       };
