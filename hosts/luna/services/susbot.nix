@@ -17,6 +17,9 @@
           sha256 = "sha256-uYtMy/rfMJPkBFDTEoKNtuogvdPlL/0Mnr//yZp5d0Y=";
         };
         cargoHash = "sha256-lNf2oUybWEJFAudCuqG6Y83O1KIc9WUXz5hRyQrHng8=";
+        meta = with lib; {
+          mainprogram = "SusBot";
+        };
       };
   in
     with pkgs; [
@@ -36,7 +39,7 @@
     serviceConfig = {
       User = "susbot";
       Type = "simple";
-      ExecStart = "SusBot ${config.age.secrets.susbot-token.path}";
+      ExecStart = "${lib.getExe pkgs.susbot} ${config.age.secrets.susbot-token.path}";
     };
   };
 }
