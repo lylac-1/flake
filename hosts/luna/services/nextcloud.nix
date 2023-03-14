@@ -13,7 +13,8 @@
     nextcloud = {
       enable = true;
       package = pkgs.nextcloud25;
-      hostName = "lylac.dev";
+      hostName = "next.lylac.dev";
+      home = "/mnt/storage/nextcloud";
       autoUpdateApps.enable = true;
       config = {
         overwriteProtocol = "https";
