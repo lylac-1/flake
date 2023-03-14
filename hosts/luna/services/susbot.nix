@@ -32,7 +32,7 @@
   };
   systemd.services.susbot = {
     description = "susbot runner";
-    After = "network-online.target";
+    after = "network-online.target";
     serviceConfig = {
       User = "susbot";
       Type = "simple";
