@@ -21,6 +21,7 @@
     ./hardware.nix
     ./users/lylac.nix
     ./users/root.nix
+    ./susbot.nix
   ];
   time.timeZone = "NZ";
   i18n.defaultLocale = "en_NZ.UTF-8";
@@ -76,7 +77,7 @@
       git
       ranger
       xdg-utils # wayland
-      # (import ./susbot.nix) waiting on nixi to start crate testing
+      #(import ./susbot.nix) # waiting on nixi to start crate testing
     ];
     shells = with pkgs; [zsh]; # see nixos.wiki/wiki/Command_Shell
   };

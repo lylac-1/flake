@@ -27,7 +27,4 @@
       intel-compute-runtime
     ];
   };
-  ###############
-  # add fs bind #
-  ###############
 }
