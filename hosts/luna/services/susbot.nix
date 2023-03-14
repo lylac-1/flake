@@ -2,6 +2,7 @@
   nixpkgs,
   pkgs,
   lib,
+  config,
   ...
 }: {
   environment.systemPackages = let
