@@ -22,7 +22,7 @@
     };
 in {
   environment.systemPackages = [
-    pkgs.susbot
+    susbot
   ];
   age.secrets.susbot-token = {
     file = ../../../secrets/susbot-token.age;
@@ -38,7 +38,7 @@ in {
     serviceConfig = {
       User = "susbot";
       Type = "simple";
-      ExecStart = "${lib.getExe pkgs.susbot} ${config.age.secrets.susbot-token.path}";
+      ExecStart = "${lib.getExe susbot} ${config.age.secrets.susbot-token.path}";
     };
   };
 }
