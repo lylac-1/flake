@@ -28,17 +28,17 @@ in {
     file = ../../../secrets/susbot-token.age;
     owner = "SusBot";
   };
-  users.extraUsers.SusBot = {
+  users.extraUsers.susbot = {
     isSystemUser = true;
     group = "nogroup";
   };
   systemd.services.susbot = {
-    description = "SusBot runner";
+    description = "susbot runner";
     after = ["network-online.target"];
     serviceConfig = {
-      User = "SusBot";
+      User = "susbot";
       Type = "simple";
-      ExecStart = "${lib.getExe SusBot} ${config.age.secrets.susbot-token.path}";
+      ExecStart = "${lib.getExe susbot} ${config.age.secrets.susbot-token.path}";
     };
   };
 }
