@@ -34,8 +34,7 @@
     '';
     shellAliases = {
       ls = "ls --color";
-      luna = "ssh luna -p 40221 -i ~/.ssh/luna-private";
-      lunacp = "scp -p 40221 -i ~/.ssh/luna-private";
+      aurelia = "ssh aurelia -p 40221 -i ~/.ssh/aurelia-private";
       build-switch = "nixos-rebuild switch --flake .#garden --use-remote-sudo";
       build-dry = "nixos-rebuild dry-build --flake .#garden --use-remote-sudo";
       fetch = "yafetch";
