@@ -1,4 +1,4 @@
-''
+{mcolours}: ''
   font = "JetBrains Mono"
   font-size = 18
   hint-font = true

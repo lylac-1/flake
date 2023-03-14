@@ -19,7 +19,7 @@
   home-manager.users.lylac = {config, ...}: {
     imports = [
       (import ../../../modules/programs/zsh.nix {}) # default is fine
-      (import ../../../modules/programs/desktop {system = "garden";})
+      ../../../modules/programs/desktop
       ../../../modules/programs/vim.nix
       ../../../modules/programs/desktop/r2modmanplus.nix
     ];

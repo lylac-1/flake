@@ -1,5 +1,4 @@
 {
-  system,
   inputs,
   config,
   pkgs,
@@ -13,6 +12,6 @@
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = import ./hyprland_${system}.nix {inherit mcolours lib;};
+    extraConfig = import ./hyprland_garden.nix {inherit mcolours lib;};
   };
 }

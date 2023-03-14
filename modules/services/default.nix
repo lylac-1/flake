@@ -35,7 +35,7 @@
     gitea = {
       enable = true;
       domain = "tea.lylac.dev";
-      rootUrl = "https://tea.lylac.dev/";
+      rootUrl = "https://tea.aurelia.cafe";
       httpPort = 3001;
       settings = {
         ui = {
