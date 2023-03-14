@@ -4,27 +4,26 @@
   lib,
   config,
   ...
-}: {
-  environment.systemPackages = let
-    susbot = with pkgs;
-      rustPlatform.buildRustPackage rec {
-        name = "susbot";
-        src = fetchFromGitea {
-          domain = "tea.lylac.dev";
-          owner = "Nixinova";
-          repo = "SusBot";
-          rev = "rust";
-          sha256 = "sha256-uYtMy/rfMJPkBFDTEoKNtuogvdPlL/0Mnr//yZp5d0Y=";
-        };
-        cargoHash = "sha256-lNf2oUybWEJFAudCuqG6Y83O1KIc9WUXz5hRyQrHng8=";
-        meta = with lib; {
-          mainprogram = "SusBot";
-        };
+}: let
+  susbot = with pkgs;
+    rustPlatform.buildRustPackage rec {
+      name = "susbot";
+      src = fetchFromGitea {
+        domain = "tea.lylac.dev";
+        owner = "Nixinova";
+        repo = "SusBot";
+        rev = "rust";
+        sha256 = "sha256-uYtMy/rfMJPkBFDTEoKNtuogvdPlL/0Mnr//yZp5d0Y=";
       };
-  in
-    with pkgs; [
-      susbot
-    ];
+      cargoHash = "sha256-lNf2oUybWEJFAudCuqG6Y83O1KIc9WUXz5hRyQrHng8=";
+      meta = {
+        lib.mainprogram = "SusBot";
+      };
+    };
+in {
+  environment.systemPackages = [
+    pkgs.susbot
+  ];
   age.secrets.susbot-token = {
     file = ../../../secrets/susbot-token.age;
     owner = "susbot";
