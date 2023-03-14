@@ -26,7 +26,7 @@ in {
   ];
   age.secrets.susbot-token = {
     file = ../../../secrets/susbot-token.age;
-    owner = "SusBot";
+    owner = "susbot";
   };
   users.extraUsers.susbot = {
     isSystemUser = true;
