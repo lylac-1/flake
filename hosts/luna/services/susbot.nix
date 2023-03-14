@@ -7,7 +7,7 @@
 }: let
   susbot = with pkgs;
     rustPlatform.buildRustPackage rec {
-      name = "susbot";
+      name = "SusBot";
       src = fetchFromGitea {
         domain = "tea.lylac.dev";
         owner = "Nixinova";
@@ -26,19 +26,19 @@ in {
   ];
   age.secrets.susbot-token = {
     file = ../../../secrets/susbot-token.age;
-    owner = "susbot";
+    owner = "SusBot";
   };
-  users.extraUsers.susbot = {
+  users.extraUsers.SusBot = {
     isSystemUser = true;
     group = "nogroup";
   };
   systemd.services.susbot = {
-    description = "susbot runner";
+    description = "SusBot runner";
     after = ["network-online.target"];
     serviceConfig = {
-      User = "susbot";
+      User = "SusBot";
       Type = "simple";
-      ExecStart = "${lib.getExe susbot} ${config.age.secrets.susbot-token.path}";
+      ExecStart = "${lib.getExe SusBot} ${config.age.secrets.susbot-token.path}";
     };
   };
 }
