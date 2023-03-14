@@ -13,8 +13,9 @@
           owner = "Nixinova";
           repo = "SusBot";
           rev = "a";
+          sha256 = "sha256-lNf2oUybWEJFAudCuqG6Y83O1KIc9WUXz5hRyQrHng8=";
         };
-        cargoHash = "sha256-i/aRyHnc6S7PqibNMTXKo1HUCqHZmfYNW0oVZh2gf8E=";
+        cargoHash = "sha256-lNf2oUybWEJFAudCuqG6Y83O1KIc9WUXz5hRyQrHng8=";
       };
   in
     with pkgs; [
